@@ -1,0 +1,51 @@
+[package]
+name = "lab39C"
+version = "1.2.0"
+edition = "2021"
+authors = ["Your Name"]
+description = "Advanced polished Rust CLI"
+
+#https://doc.rust-lang.org/cargo/reference/profiles.html
+[profile.release]
+
+# opt-level = "z"
+# Enables maximum size optimization.
+# The compiler focuses on producing the smallest possible binary,
+# even if it slightly reduces runtime performance.
+# Commonly used for CLI tools, embedded systems, and container images.
+# Other values: 0 (no opt, fast compile), 1–3 (increasing speed opts), "s" (size opt, faster than "z")
+opt-level = "z"
+
+
+# lto = true
+# Link Time Optimization:
+# Performs whole-program optimization at link time.
+# Allows the compiler to inline across crate boundaries and remove dead code.
+# Results in smaller and often faster binaries, but increases compile time.
+# Other values: false (default, faster builds), "thin" (balanced LTO, faster than full)
+lto = true
+
+
+# codegen-units = 1
+# Forces the compiler to use a single code generation unit.
+# Improves optimization opportunities (better inlining and analysis).
+# Slows down compilation but produces a more optimized final binary.
+# Other values: >1 (parallel codegen, faster compile, less optimization), default = number of CPU cores
+codegen-units = 1
+
+
+# panic = "abort"
+# Disables stack unwinding on panic.
+# On panic, the program terminates immediately.
+# Reduces binary size and removes dependency on unwinding runtime.
+# Suitable for binaries where graceful recovery is not required.
+# Other values: "unwind" (default, supports stack unwinding and panic recovery)
+panic = "abort"
+
+
+# strip = true
+# Removes debug symbols from the final binary.
+# Significantly reduces binary size.
+# Makes debugging harder but ideal for production releases.
+# Other values: false (keeps symbols), "debuginfo" (strip debug only), "symbols" (strip symbols only)
+strip = true

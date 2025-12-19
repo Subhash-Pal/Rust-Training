@@ -1,0 +1,10 @@
+[package]
+name = "AdvancedRust"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+reqwest = { version = "0.12.25", features = ["json"] }
+async-trait = "0.1"
+libc = "0.2"

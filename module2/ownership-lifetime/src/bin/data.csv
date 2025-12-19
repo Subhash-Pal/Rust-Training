@@ -1,0 +1,5 @@
+name,age,city,"country, with comma"
+Alice,30,"New York, NY",USA
+Bob,25,London,"United Kingdom"
+"Charlie ""The Great""",42,Paris,France
+Diana,35,"São Paulo",Brazil

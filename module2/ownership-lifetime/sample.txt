@@ -1,0 +1,21 @@
+Concept
+
+Rust's ownership system controls how data moves, borrows, and gets freed.
+Real-world ownership patterns appear when:
+
+Returning large objects without copying
+
+Passing references safely
+
+Using borrowed vs owned data in APIs
+
+Why it matters
+
+C++ developers often rely on raw pointers, smart pointers, or move constructors.
+Rust enforces ownership through the compiler:
+
+One owner at a time
+
+Data moved by default
+
+Explicit references &T / &mut T

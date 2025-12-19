@@ -1,0 +1,28 @@
+[package]
+name = "my-rust-project"
+version = "0.1.0"
+edition = "2021"
+authors = ["Your Name <you@example.com>"]
+description = "A sample Rust project demonstrating dev profile optimization."
+license = "MIT"
+repository = "https://github.com/yourname/my-rust-project"
+
+# Default development profile: balances fast compile times and decent runtime
+[profile.dev]
+opt-level = 1        # Light optimization for your own code (faster rebuilds)
+debug = true         # Keep debug info for debugging
+debug-assertions = true  # Enable debug assertions (e.g., panics on overflow)
+overflow-checks = true   # Check integer overflows in debug builds
+lto = false          # Disable link-time optimization (slows down linking)
+panic = "unwind"     # Unwind stack on panic (needed for backtraces)
+incremental = true   # Enable incremental compilation (faster dev builds)
+codegen-units = 256  # Use many codegen units for parallelism (faster compile)
+
+# Override: fully optimize all dependencies (they rarely change)
+[profile.dev.package."*"]
+opt-level = 3        # Aggressive optimization for dependencies
+debug = false        # Strip debug info from dependencies (smaller/faster)
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"

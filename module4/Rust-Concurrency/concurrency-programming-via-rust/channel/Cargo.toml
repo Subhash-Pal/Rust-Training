@@ -1,0 +1,19 @@
+[package]
+name = "channel"
+version = "0.1.0"
+edition = "2024"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+async-channel = "2.5.0"
+async-priority-channel = "0.2.0"
+broadcaster = "1.0.0"
+crossfire = "2.1.8"
+flume = "0.12.0"
+futures = "0.3.24"
+futures-channel = "0.3.24"
+futures-util = "0.3.24"
+kanal = "0.1.0-pre6"
+scc = "3.4.7"
+tokio = { version = "1.48.0", features = ["full"] }
